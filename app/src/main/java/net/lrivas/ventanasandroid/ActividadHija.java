@@ -49,7 +49,6 @@ public class ActividadHija extends AppCompatActivity {
             String apellido = valores.getString("apellido");
             String edad = valores.getString("edad");
             int edadInt = Integer.parseInt(edad);
-
             if(edadInt >= 18){
                 view.setBackgroundResource(R.color.purple_700);
                 resultado.setText("Nombre: "+ nombre);
