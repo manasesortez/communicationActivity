@@ -22,7 +22,7 @@ public class ActividadHija extends AppCompatActivity {
         setContentView(R.layout.activity_actividad_hija);
 
         view = this.getWindow().getDecorView();
-        view.setBackgroundResource(R.color.purple_700);
+        view.setBackgroundResource(R.color.black_overlay);
 
         resultado = findViewById(R.id.lblResultados);
         finalLastName = findViewById(R.id.lblResultados2);
@@ -42,16 +42,27 @@ public class ActividadHija extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         Bundle valores = getIntent().getExtras();
+
         if(valores!=null){
             //Recuperar los datos
             String nombre = valores.getString("nombre");
             String apellido = valores.getString("apellido");
             String edad = valores.getString("edad");
+            int edadInt = Integer.parseInt(edad);
 
-            resultado.setText("Nombre: "+ nombre);
-            finalLastName.setText("Apellido: " + apellido);
-            finalAge.setText("Edad: " + edad);
+            if(edadInt >= 18){
+                view.setBackgroundResource(R.color.purple_700);
+                resultado.setText("Nombre: "+ nombre);
+                finalLastName.setText("Apellido: " + apellido);
+                finalAge.setText("Edad: " + edadInt);
+            }else{
+                view.setBackgroundResource(R.color.purple_500);
+                resultado.setText("Nombre: "+ nombre);
+                finalLastName.setText("Apellido: " + apellido);
+                finalAge.setText("Edad: " + edadInt);
+            }
 
         }
+
     }
 }

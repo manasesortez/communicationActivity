@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         edad = findViewById(R.id.txtEdad);
         caja = findViewById(R.id.txtNombre);
 
+
         boton01 = findViewById(R.id.btnSiguiente);
         boton01.setOnClickListener(v -> {
             //Invocar la segunda activity
